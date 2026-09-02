@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #cfde96;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background: rgb(141, 113, 207);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #1a1a2e;
+    margin-bottom: 25px;
+    font-size: 26px;
+}
+
+.details-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-of-type {
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+
+.detail-row .label {
+    font-weight: 600;
+    color: #555;
+    font-size: 15px;
+}
+
+.detail-row .value {
+    color: #1a1a2e;
+    font-weight: 600;
+    font-size: 15px;
+    word-break: break-all;
+}
+
+.no-data-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.no-data-card p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    border: none;
+    width: 100%;
+}
+
+.btn-primary {
+    background: #4a90d9;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #357abd;
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e1;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}

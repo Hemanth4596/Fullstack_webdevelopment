@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Details - Registration App</title>
+  <link rel="stylesheet" href="/display.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Registered User Details</h2>
+
+    <div id="userDataContainer" class="details-card">
+      <div class="detail-row">
+        <span class="label">Name:</span>
+        <span id="displayName" class="value">-</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Email:</span>
+        <span id="displayEmail" class="value">-</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Phone:</span>
+        <span id="displayPhone" class="value">-</span>
+      </div>
+
+      <div class="button-group">
+        <a href="/" class="btn btn-primary">Back to Registration</a>
+        <button id="clearBtn" class="btn btn-secondary">Clear Data</button>
+      </div>
+    </div>
+
+    <div id="noDataContainer" class="no-data-card" style="display: none;">
+      <p>No user data found in localStorage.</p>
+      <a href="/" class="btn btn-primary">Go to Registration Form</a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const rawData = localStorage.getItem("userData");
+      const userContainer = document.getElementById("userDataContainer");
+      const noDataContainer = document.getElementById("noDataContainer");
+      const clearBtn = document.getElementById("clearBtn");
+
+      if (rawData) {
+        try {
+          const userData = JSON.parse(rawData);
+          document.getElementById("displayName").textContent = userData.name || "N/A";
+          document.getElementById("displayEmail").textContent = userData.email || "N/A";
+          document.getElementById("displayPhone").textContent = userData.phone || "N/A";
+          userContainer.style.display = "block";
+          noDataContainer.style.display = "none";
+        } catch (e) {
+          console.error("Error parsing userData from localStorage", e);
+          userContainer.style.display = "none";
+          noDataContainer.style.display = "block";
+        }
+      } else {
+        userContainer.style.display = "none";
+        noDataContainer.style.display = "block";
+      }
+
+      clearBtn.addEventListener("click", () => {
+        localStorage.removeItem("userData");
+        userContainer.style.display = "none";
+        noDataContainer.style.display = "block";
+      });
+    });
+  </script>
+</body>
+</html>
